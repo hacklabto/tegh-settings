@@ -1,39 +1,50 @@
-filamentDiameter: 2920
-filamentFlow: 110
-initialLayerThickness: 300
 layerThickness: 200
+initialLayerThickness: 300
+filamentDiameter: 2890
+filamentFlow: 100
 extrusionWidth: 400
 insetCount: 2
 downSkinCount: 6
 upSkinCount: 6
-initialSpeedupLayers: 1 
-initialLayerSpeed: 30
-printSpeed: 130
-infillSpeed: !!js/function |
-  function() { return this.printSpeed }
-moveSpeed: 170
-skirtDistance: 3000
-skirtLineCount: 2
 sparseInfillLineDistance: !!js/function |
   function() { return 100 * this.extrusionWidth / 20; }
-infillOverlap: 25
+infillOverlap: 15
+skirtDistance: 6000
+skirtLineCount: 1
+skirtMinLength: 0
+
+initialSpeedupLayers: 4
+initialLayerSpeed: 20
+printSpeed: 50
+infillSpeed: 50
+inset0Speed: 50
+insetXSpeed: 50
+moveSpeed: 150
+fanFullOnLayerNr: 2
+
+supportType: 0
+supportAngle: -1
+supportEverywhere: 0
+supportLineDistance: !!js/function |
+  function() { return this.sparseInfillLineDistance; }
+supportXYDistance: 700
+supportZDistance: 150
+supportExtruder: -1
+
+retractionAmount: 4500
+retractionSpeed: 45
+retractionAmountExtruderSwitch: 14500
+retractionMinimalDistance: 1500
+minimalExtrusionBeforeRetraction: 100
+retractionZHop: 0
+
+enableCombing: 1
+enableOozeShield: 0
+wipeTowerSize: 0
+multiVolumeOverlap: 0
 posx: 102500
 posy: 102500
 objectSink: 0
-supportAngle: 45
-supportEverywhere: 0
-supportLineWidth: !!js/function |
-  function() { return this.extrusionWidth; }
-retractionAmount: 4.5
-retractionSpeed: 40
-retractionAmountExtruderSwitch: 14.5
-multiVolumeOverlap: 0
-
-minimalLayerTime: 10
-minimalFeedrate: 10
-coolHeadLift: 1
-fanSpeedMin: 100
-fanSpeedMax: 100
 
 raftMargin: 5000
 raftLineSpacing: 1000
@@ -42,7 +53,19 @@ raftBaseLinewidth: 0
 raftInterfaceThickness: 0
 raftInterfaceLinewidth: 0
 
+
+minimalLayerTime: 5
+minimalFeedrate: 10
+coolHeadLift: 0
+fanSpeedMin: 100
+fanSpeedMax: 100
+
 fixHorrible: 0
+spiralizeMode: 0
+gcodeFlavor: GCODE_FLAVOR_REPRAP
+
+
+
 
 startCode: |
   M109 S225	Heatup Bed
